@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -30,6 +28,7 @@ protected:
 private:
 	void TickMovement(float DeltaTime);
 	void CheckIfAtEnd();
+	void DisplayMessage();
 
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
 	bool bMovingForward = true;

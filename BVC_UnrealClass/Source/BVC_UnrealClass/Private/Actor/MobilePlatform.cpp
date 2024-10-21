@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "Actor/MobilePlatform.h"
 
 AMobilePlatform::AMobilePlatform()
@@ -13,10 +10,11 @@ AMobilePlatform::AMobilePlatform()
 void AMobilePlatform::BeginPlay()
 {
 	Super::BeginPlay();
+	//DisplayMessage();
 
 	if (PlatformMesh)
 	{
-		//StartingLocation = (*PlatformMesh).GetRelativeLocation();
+		//StartingLocation = (*PlatformMesh).GetRelativeLocation(); // other way to access something from a pointer
 		StartingLocation = PlatformMesh->GetRelativeLocation();
 		Destination += PlatformMesh->GetComponentLocation();
 	}
@@ -55,5 +53,14 @@ void AMobilePlatform::CheckIfAtEnd()
 	else if (MoveAlpha == 0.f && !bMovingForward)
 	{
 		bMovingForward = true;
+	}
+}
+
+void AMobilePlatform::DisplayMessage()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Hello from your console"));
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(1, 5.f, FColor::Magenta, TEXT("Hellon from your screen"));
 	}
 }
