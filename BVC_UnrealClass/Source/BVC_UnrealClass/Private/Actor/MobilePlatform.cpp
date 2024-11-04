@@ -16,7 +16,7 @@ void AMobilePlatform::BeginPlay()
 	{
 		//StartingLocation = (*PlatformMesh).GetRelativeLocation(); // other way to access something from a pointer
 		StartingLocation = PlatformMesh->GetRelativeLocation();
-		Destination += PlatformMesh->GetComponentLocation();
+		Destination += PlatformMesh->GetRelativeLocation();
 	}
 }
 
