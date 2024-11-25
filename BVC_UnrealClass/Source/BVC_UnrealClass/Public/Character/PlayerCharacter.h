@@ -11,6 +11,7 @@ class UCameraComponent;
 class USpringArmComponent;
 class UInputMappingContext;
 class UInputAction;
+class UAnimMontage;
 struct FInputActionValue;
 
 UCLASS()
@@ -29,6 +30,7 @@ protected:
 
 	void Movement(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void JumpStart();
 
 	/*
 		Inputs
@@ -38,18 +40,20 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = Input)
 	//UInputAction* JumpAction; //old type of pointer
-	TObjectPtr <UInputAction> JumpAction; //TObjectPtr new type of pointer
+	TObjectPtr<UInputAction> JumpAction; //TObjectPtr new type of pointer
 
 	UPROPERTY(EditAnywhere, Category = Input)
-	TObjectPtr <UInputAction> LookAction;
+	TObjectPtr<UInputAction> LookAction;
 
 	UPROPERTY(EditAnywhere, Category = Input)
-	TObjectPtr <UInputAction> MoveAction;
+	TObjectPtr<UInputAction> MoveAction;
 
-private:
 	UPROPERTY(EditAnywhere, Category = Camera)
 	UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere, Category = Camera)
 	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(EditAnywhere, Category = Animation)
+	TObjectPtr<UAnimMontage> JumpMontage;
 };
